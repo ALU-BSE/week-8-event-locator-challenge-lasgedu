@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .hero-section {
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+  }
+  
+  .event-card {
+    transition: transform 0.3s ease;
+  }
+  
+  .event-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  #eventListContainer {
+    margin-bottom: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .event-card {
+      margin-bottom: 1rem;
+    }
+  }
