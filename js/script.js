@@ -85,17 +85,18 @@ const events = [
   ];
   
   
-  function renderEvents(filteredEvents) {
+  // Function to render event cards
+function renderEvents(filteredEvents) {
     const container = document.getElementById("eventListContainer");
-    container.innerHTML = ""; 
+    container.innerHTML = ""; // Clear existing cards
   
     filteredEvents.forEach(event => {
       const card = `
         <div class="col-md-4">
-          <div class="card event-card shadow-sm">
+          <div class="card h-100 shadow-sm">
             <img src="${event.image}" class="card-img-top" alt="${event.name}">
             <div class="card-body">
-              <h5 class="card-title"><a href="event-details.html?eventId=${event.id}">${event.name}</a></h5>
+              <h5 class="card-title"><a href="event-detail.html?eventId=${event.id}">${event.name}</a></h5>
               <p class="card-text">${event.description}</p>
             </div>
           </div>
@@ -105,51 +106,7 @@ const events = [
     });
   }
   
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-  document.getElementById("searchButton").addEventListener("click", () => {
-    const cityInput = document.getElementById("cityInput").value.toLowerCase();
-    const categoryFilter = document.getElementById("categoryFilter").value;
-    const dateFilter = document.getElementById("dateFilter").value;
-  
-    let filteredEvents = events;
-  
-    if (cityInput) {
-      filteredEvents = filteredEvents.filter(event =>
-        event.location.toLowerCase().includes(cityInput)
-      );
-    }
-  
-    if (categoryFilter && categoryFilter !== "all") {
-      filteredEvents = filteredEvents.filter(event =>
-        event.category === categoryFilter
-      );
-    }
-  
-    if (dateFilter) {
-      const selectedDate = new Date(dateFilter).toISOString().split("T")[0];
-      filteredEvents = filteredEvents.filter(event =>
-        new Date(event.date).toISOString().split("T")[0] === selectedDate
-      );
-    }
-  
-    renderEvents(filteredEvents);
-  });
-  
-
-  window.addEventListener("DOMContentLoaded", () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const eventId = parseInt(urlParams.get("eventId"));
-  
-    const event = events.find(e => e.id === eventId);
-  
-    if (event) {
-      document.getElementById("eventName").textContent = event.name;
-      document.getElementById("eventImage").src = event.image;
-      document.getElementById("eventDescription").textContent = event.description;
-      document.getElementById("eventDate").textContent = event.date;
-      document.getElementById("eventLocation").textContent = event.location;
-      document.getElementById("eventDetails").innerHTML = event.details;
-    } else {
-      document.getElementById("eventName").textContent = "Event Not Found";
-    }
-  });
+  <script src="js/script.js"></script>

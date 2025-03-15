@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IKAZE WILDFESTIVAL</title>
+  <title>Somo Events</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
@@ -26,8 +26,8 @@
       <div class="col-md-8">
         <form id="searchForm" class="p-4 bg-light rounded shadow-sm">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" id="cityInput" placeholder="Search more Events">
-            <button class="btn btn-primary" type="button">Search</button>
+            <input type="text" class="form-control" id="cityInput" placeholder="Search for Events">
+            <button class="btn btn-primary" type="button" id="searchButton">Search</button>
           </div>
           <div class="row g-3">
             <div class="col-md-6">
@@ -43,6 +43,8 @@
             </div>
           </div>
         </form>
+        <!-- Dropdown -->
+        <div id="suggestionsDropdown" class="dropdown-menu" aria-labelledby="cityInput"></div>
       </div>
     </div>
   </div>
@@ -109,8 +111,8 @@
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/script.js"></script>
+ <!-- Bootstrap JS -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="js/script.js"></script>
 </body>
 </html>
